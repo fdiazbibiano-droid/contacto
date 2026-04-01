@@ -19,19 +19,13 @@
     </nav>
 </template>
 
-<script>
-export default {
-    name: 'NavBar',
-    data() {
-        return {
-            isOpen: false,
-        };
-    },
-    methods: {
-        toggleMenu() {
-            this.isOpen = !this.isOpen;
-        },
-    },
+<script setup lang="js">
+import { ref } from 'vue';
+
+const isOpen = ref(false);
+
+const toggleMenu = () => {
+    isOpen.value = !isOpen.value;
 };
 </script>
 

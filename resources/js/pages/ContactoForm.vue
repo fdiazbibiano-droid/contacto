@@ -61,7 +61,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="js">
 import { ref } from 'vue';
 import FooterGeneral from './FooterGeneral.vue';
 

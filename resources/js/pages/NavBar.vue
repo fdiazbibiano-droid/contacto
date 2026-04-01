@@ -72,7 +72,7 @@ export default {
 }
 
 .navbar-menu a:hover {
-    color: #4caf50;
+    color: #bf422f;
 }
 
 .navbar-toggle {

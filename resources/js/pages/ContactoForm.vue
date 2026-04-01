@@ -3,7 +3,7 @@
         <!-- Navbar -->
         <nav class="navbar">
             <div class="navbar-container">
-                <h1 class="navbar-logo">Mi Sitio</h1>
+                <h1 class="navbar-logo">NW POINT | CONSTRUCTION LLC</h1>
                 <ul class="nav-menu">
                     <li><a href="/">Inicio</a></li>
                     <li><a href="#about">Acerca de</a></li>
@@ -74,7 +74,7 @@ const form = ref({
 
 const submitForm = () => {
     console.log('Formulario enviado:', form.value);
-    // Aquí puedes enviar los datos a tu servidor
+    // agregar lógica para enviar el formulario
     alert('Gracias por tu mensaje!');
     form.value = { name: '', email: '', phone: '', message: '' };
 };
@@ -126,7 +126,7 @@ const submitForm = () => {
 }
 
 .nav-menu a:hover {
-    color: #4caf50;
+    color: #bf422f;
 }
 
 .container {
@@ -174,14 +174,14 @@ h2 {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #4caf50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    border-color: #bf422f;
+    box-shadow: 0 0 5px rgba(98, 105, 98, 0.3);
 }
 
 .btn-submit {
     width: 100%;
     padding: 0.75rem;
-    background-color: #4caf50;
+    background-color: #bf422f;
     color: white;
     border: none;
     border-radius: 4px;
@@ -191,7 +191,7 @@ h2 {
 }
 
 .btn-submit:hover {
-    background-color: #45a049;
+    background-color: #bf422f;
 }
 
 @media (max-width: 768px) {

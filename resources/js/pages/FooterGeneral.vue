@@ -59,7 +59,7 @@
     </footer>
 </template>
 
-<script setup lang="js">
+<script setup lang="ts">
 defineOptions({
     name: 'FooterGeneral',
 });

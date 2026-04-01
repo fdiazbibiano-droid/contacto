@@ -50,7 +50,7 @@
                     width="100%"
                     height="400"
                     style="border: 0"
-                    allowfullscreen=""
+                    allowfullscreen
                     loading="lazy"
                 >
                 </iframe>
@@ -61,7 +61,7 @@
     </div>
 </template>
 
-<script setup lang="js">
+<script setup lang="ts">
 import { ref } from 'vue';
 import FooterGeneral from './FooterGeneral.vue';
 

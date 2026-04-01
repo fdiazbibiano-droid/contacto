@@ -55,7 +55,7 @@
     </div>
 </template>
 
-<script setup lang="js">
+<script setup lang="ts">
 import NavBar from './NavBar.vue';
 import FooterGeneral from './FooterGeneral.vue';
 </script>

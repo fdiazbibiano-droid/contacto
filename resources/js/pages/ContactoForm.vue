@@ -17,6 +17,9 @@
             <!-- Formulario de Contacto -->
             <div class="form-section">
                 <h2>Contacto</h2>
+                <div v-if="successMessage" class="alert-success">
+                    {{ successMessage }}
+                </div>
                 <form @submit.prevent="submitForm">
                     <div class="form-group">
                         <label>Nombre</label>
@@ -38,7 +41,13 @@
                             required
                         ></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Enviar</button>
+                    <button
+                        type="submit"
+                        class="btn-submit"
+                        :disabled="form.processing"
+                    >
+                        {{ form.processing ? 'Enviando...' : 'Enviar' }}
+                    </button>
                 </form>
             </div>
 
@@ -62,10 +71,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { route } from 'ziggy-js';
+import { computed } from 'vue';
+import { usePage } from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3';
 import FooterGeneral from './FooterGeneral.vue';
 
-const form = ref({
+const page = usePage();
+const successMessage = computed(() => (page.props as any).flash?.success);
+
+const form = useForm({
     name: '',
     email: '',
     phone: '',
@@ -73,10 +88,10 @@ const form = ref({
 });
 
 const submitForm = () => {
-    console.log('Formulario enviado:', form.value);
-    // agregar lógica para enviar el formulario
-    alert('Gracias por tu mensaje!');
-    form.value = { name: '', email: '', phone: '', message: '' };
+    form.post(route('contact.send'), {
+        preserveScroll: true,
+        onSuccess: () => form.reset(),
+    });
 };
 </script>
 
@@ -136,6 +151,16 @@ const submitForm = () => {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 0 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .form-section,

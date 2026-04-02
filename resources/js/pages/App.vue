@@ -32,23 +32,7 @@
         </section>
 
         <!-- Proyectos Destacados -->
-        <section class="projects">
-            <h2>Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">Proyecto 1</div>
-                    <h3>Torres Moderna</h3>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">Proyecto 2</div>
-                    <h3>Residencial Park</h3>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">Proyecto 3</div>
-                    <h3>Centro Comercial</h3>
-                </div>
-            </div>
-        </section>
+        <section class="projects"><ContactoForm /></section>
 
         <!-- Footer -->
         <FooterGeneral />
@@ -56,17 +40,20 @@
 </template>
 
 <script setup lang="ts">
+import ContactoForm from './ContactoForm.vue';
 import NavBar from './NavBar.vue';
 import FooterGeneral from './FooterGeneral.vue';
 </script>
 
-<style scoped>
+<style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+</style>
 
+<style scoped>
 .home {
     font-family: 'Arial', sans-serif;
     color: #333;
@@ -137,44 +124,5 @@ import FooterGeneral from './FooterGeneral.vue';
 .service-card h3 {
     margin-bottom: 15px;
     color: #667eea;
-}
-
-.projects {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.projects h2 {
-    font-size: 2.5em;
-    margin-bottom: 50px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.project-card {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.project-image {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-}
-
-.project-card h3 {
-    padding: 20px;
-    background: white;
 }
 </style>

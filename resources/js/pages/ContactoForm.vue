@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <!-- Navbar -->
+        <!-- Navbar 
         <nav class="navbar">
             <div class="navbar-container">
                 <h1 class="navbar-logo">NW POINT | CONSTRUCTION LLC</h1>
@@ -11,6 +11,7 @@
                 </ul>
             </div>
         </nav>
+        -->
 
         <!-- Main Content -->
         <div class="container">
@@ -66,7 +67,6 @@
             </div>
         </div>
         <!-- Footer -->
-        <FooterGeneral />
     </div>
 </template>
 
@@ -75,7 +75,6 @@ import { route } from 'ziggy-js';
 import { computed } from 'vue';
 import { usePage } from '@inertiajs/vue3';
 import { useForm } from '@inertiajs/vue3';
-import FooterGeneral from './FooterGeneral.vue';
 
 const page = usePage();
 const successMessage = computed(() => (page.props as any).flash?.success);
@@ -95,13 +94,20 @@ const submitForm = () => {
 };
 </script>
 
-<style scoped>
+<style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+</style>
+
+<style scoped>
 .app {
     font-family: Arial, sans-serif;
 }
@@ -115,6 +121,7 @@ const submitForm = () => {
 }
 
 .navbar-container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;

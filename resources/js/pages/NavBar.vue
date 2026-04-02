@@ -6,9 +6,8 @@
             </div>
             <ul class="navbar-menu">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="/about">Acerca de</a></li>
+                <li><a href="/about">Servicios</a></li>
                 <li><a href="/contact">Contacto</a></li>
-                <li><a href="/servicios">Servicios</a></li>
             </ul>
             <button class="navbar-toggle" @click="toggleMenu">
                 <span></span>
@@ -30,7 +29,13 @@ const toggleMenu = () => {
 </script>
 
 <style scoped>
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .navbar {
+    max-width: 100%;
     background-color: #333;
     padding: 1rem 0;
     position: sticky;
@@ -38,7 +43,7 @@ const toggleMenu = () => {
 }
 
 .navbar-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;

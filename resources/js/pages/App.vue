@@ -34,15 +34,37 @@
         <!-- Proyectos Destacados -->
         <section id="contacto" class="contacto"><ContactoForm /></section>
 
+        <!--Botón de subir al inicio-->
+        <button id="btnTop" ref="btnTop">↑</button>
         <!-- Footer -->
         <FooterGeneral />
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import ContactoForm from './ContactoForm.vue';
 import NavBar from './NavBar.vue';
 import FooterGeneral from './FooterGeneral.vue';
+// Mostrar el botón de subir al inicio cuando se hace scroll
+const btnTop = ref<HTMLButtonElement | null>(null);
+
+onMounted(() => {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            if (btnTop.value) btnTop.value.style.display = 'block';
+        } else {
+            if (btnTop.value) btnTop.value.style.display = 'none';
+        }
+    });
+
+    // Scroll suave al hacer clic en el botón
+    if (btnTop.value) {
+        btnTop.value.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
 </script>
 
 <style>
@@ -127,5 +149,26 @@ html {
 .service-card h3 {
     margin-bottom: 15px;
     color: #667eea;
+}
+
+#btnTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px; /* ancho igual a alto */
+    height: 50px; /* alto igual a ancho */
+    border-radius: 50%; /* lo hace circular */
+    border: 2px solid black;
+    background-color: transparent;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; /* oculto por defecto */
+    text-align: center;
+    line-height: 46px; /* centra la flecha verticalmente */
+}
+
+#btnTop:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* leve sombreado al pasar el mouse */
 }
 </style>

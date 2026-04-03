@@ -34,6 +34,15 @@
         <!-- Proyectos Destacados -->
         <section id="contacto" class="contacto"><ContactoForm /></section>
 
+        <!-- Botón flotante de WhatsApp -->
+        <a
+            href="https://wa.me/5213312345678"
+            target="_blank"
+            id="whatsapp-float"
+        >
+            <img src="@/assets/icons8-whatsapp.svg" alt="WhatsApp" />
+        </a>
+
         <!--Botón de subir al inicio-->
         <button id="btnTop" ref="btnTop">↑</button>
         <!-- Footer -->
@@ -170,5 +179,27 @@ html {
 
 #btnTop:hover {
     background-color: rgba(0, 0, 0, 0.1); /* leve sombreado al pasar el mouse */
+}
+
+#whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 100;
+}
+
+#whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent; /* fondo transparente */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#whatsapp-float img:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* efecto hover */
 }
 </style>

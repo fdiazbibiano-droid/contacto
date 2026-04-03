@@ -2,7 +2,7 @@
     <div class="home">
         <NavBar></NavBar>
         <!-- Hero Section -->
-        <section class="hero">
+        <section id="inicio" class="hero">
             <div class="hero-content">
                 <h1>Construimos tu futuro</h1>
                 <p>Proyectos de calidad con experiencia de 20 años</p>
@@ -11,7 +11,7 @@
         </section>
 
         <!-- Servicios -->
-        <section class="services">
+        <section id="servicios" class="services">
             <h2>Nuestros Servicios</h2>
             <div class="services-grid">
                 <div class="service-card">
@@ -32,7 +32,7 @@
         </section>
 
         <!-- Proyectos Destacados -->
-        <section class="projects"><ContactoForm /></section>
+        <section id="contacto" class="contacto"><ContactoForm /></section>
 
         <!-- Footer -->
         <FooterGeneral />
@@ -50,6 +50,9 @@ import FooterGeneral from './FooterGeneral.vue';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
 }
 </style>
 

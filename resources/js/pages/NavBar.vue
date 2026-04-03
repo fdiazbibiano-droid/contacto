@@ -5,9 +5,9 @@
                 <a href="/">Logo</a>
             </div>
             <ul class="navbar-menu">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/about">Servicios</a></li>
-                <li><a href="/contact">Contacto</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
             <button class="navbar-toggle" @click="toggleMenu">
                 <span></span>

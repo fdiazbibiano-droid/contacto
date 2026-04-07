@@ -1,0 +1,23 @@
+{
+    "kind": "singleType",
+    "collectionName": "heroes",
+    "info": {
+        "singularName": "hero",
+        "pluralName": "heroes",
+        "displayName": "Hero Section",
+        "description": "Main hero section of the homepage"
+    },
+    "options": { "draftAndPublish": true },
+    "attributes": {
+        "eyebrow":  { "type": "string", "required": true, "maxLength": 120 },
+        "title":    { "type": "string", "required": true, "maxLength": 120 },
+        "titleSpan":{ "type": "string", "required": true, "maxLength": 120 },
+        "subtitle": { "type": "text",   "required": true },
+        "cta":      { "type": "string", "required": true, "maxLength": 80 },
+        "eyebrow_es":   { "type": "string", "maxLength": 120 },
+        "title_es":     { "type": "string", "maxLength": 120 },
+        "titleSpan_es": { "type": "string", "maxLength": 120 },
+        "subtitle_es":  { "type": "text" },
+        "cta_es":       { "type": "string", "maxLength": 80 }
+    }
+}

@@ -4,39 +4,37 @@
         <!-- Hero Section -->
         <section id="inicio" class="hero">
             <div class="hero-content">
-                <h1>Construimos tu futuro</h1>
-                <p>Proyectos de calidad con experiencia de 20 años</p>
-                <button class="cta-button">Conocer proyectos</button>
+                <h1>{{ t.hero.title }}</h1>
+                <p>{{ t.hero.subtitle }}</p>
+                <button class="cta-button" @click="scrollToContact">{{ t.hero.cta }}</button>
             </div>
+        </section>
+
+        <!-- Nosotros -->
+        <section id="nosotros" class="about">
+            <h2>{{ t.about.title }}</h2>
+            <p>{{ t.about.text }}</p>
         </section>
 
         <!-- Servicios -->
         <section id="servicios" class="services">
-            <h2>Nuestros Servicios</h2>
+            <h2>{{ t.services.title }}</h2>
             <div class="services-grid">
-                <div class="service-card">
-                    <h3>Construcción Residencial</h3>
-                    <p>
-                        Casas y apartamentos de lujo con los mejores estándares
-                    </p>
-                </div>
-                <div class="service-card">
-                    <h3>Proyectos Comerciales</h3>
-                    <p>Edificios comerciales y centros de negocios</p>
-                </div>
-                <div class="service-card">
-                    <h3>Reforma y Remodelación</h3>
-                    <p>Transforma tus espacios con nuestro equipo experto</p>
-                </div>
+                <ServiceCard
+                    v-for="card in serviceCards"
+                    :key="card.titleEn"
+                    :image="card.image"
+                    :title="card.titleEn"
+                />
             </div>
         </section>
 
-        <!-- Proyectos Destacados -->
+        <!-- Contacto -->
         <section id="contacto" class="contacto"><ContactoForm /></section>
 
         <!-- Botón flotante de WhatsApp -->
         <a
-            href="https://wa.me/5213312345678"
+            href="https://wa.me/15642098251"
             target="_blank"
             id="whatsapp-float"
         >
@@ -45,6 +43,7 @@
 
         <!--Botón de subir al inicio-->
         <button id="btnTop" ref="btnTop">↑</button>
+
         <!-- Footer -->
         <FooterGeneral />
     </div>
@@ -55,19 +54,41 @@ import { ref, onMounted } from 'vue';
 import ContactoForm from './ContactoForm.vue';
 import NavBar from './NavBar.vue';
 import FooterGeneral from './FooterGeneral.vue';
-// Mostrar el botón de subir al inicio cuando se hace scroll
+import ServiceCard from './ServiceCard.vue';
+import { useLang } from '@/composables/useLang';
+import roof1 from '@/assets/roof1.jpeg';
+import roof5 from '@/assets/roof5.jpeg';
+import roof10 from '@/assets/roof10.jpeg';
+import roof7 from '@/assets/roof7.jpeg';
+import roof20 from '@/assets/roof20.jpeg';
+import roof13 from '@/assets/roof13.jpeg';
+import roof23 from '@/assets/roof23.jpeg';
+
+const { t } = useLang();
+
+const serviceCards = [
+    { image: roof1,  titleEn: 'ALL TYPES OF ROOFING (TPO, METAL, SHAKE & SHINGLES)' },
+    { image: roof5,  titleEn: 'ROOF MAINTENANCE' },
+    { image: roof10, titleEn: 'ROOF & GUTTER CLEANING' },
+    { image: roof7,  titleEn: 'REPAIRS' },
+    { image: roof20, titleEn: 'SIDING' },
+    { image: roof13, titleEn: 'RENOVATION' },
+    { image: roof23, titleEn: 'PRESSURE WASHING' },
+];
+
+const scrollToContact = () => {
+    document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+};
+
 const btnTop = ref<HTMLButtonElement | null>(null);
 
 onMounted(() => {
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            if (btnTop.value) btnTop.value.style.display = 'block';
-        } else {
-            if (btnTop.value) btnTop.value.style.display = 'none';
+        if (btnTop.value) {
+            btnTop.value.style.display = window.scrollY > 300 ? 'block' : 'none';
         }
     });
 
-    // Scroll suave al hacer clic en el botón
     if (btnTop.value) {
         btnTop.value.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -94,8 +115,8 @@ html {
 }
 
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: radial-gradient(circle, #ffffff 0%, #B3B3B3 100%);
+    color: red;
     padding: 100px 20px;
     text-align: center;
     min-height: 400px;
@@ -112,6 +133,7 @@ html {
 .hero-content p {
     font-size: 1.3em;
     margin-bottom: 30px;
+    color: #555;
 }
 
 .cta-button {
@@ -148,37 +170,42 @@ html {
     margin: 0 auto;
 }
 
-.service-card {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.about {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
 }
 
-.service-card h3 {
-    margin-bottom: 15px;
-    color: #667eea;
+.about h2 {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.about p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: #555;
 }
 
 #btnTop {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 50px; /* ancho igual a alto */
-    height: 50px; /* alto igual a ancho */
-    border-radius: 50%; /* lo hace circular */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     border: 2px solid black;
     background-color: transparent;
     color: black;
     font-size: 20px;
     cursor: pointer;
-    display: none; /* oculto por defecto */
+    display: none;
     text-align: center;
-    line-height: 46px; /* centra la flecha verticalmente */
+    line-height: 46px;
 }
 
 #btnTop:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* leve sombreado al pasar el mouse */
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 #whatsapp-float {
@@ -194,12 +221,12 @@ html {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: transparent; /* fondo transparente */
+    background-color: transparent;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #whatsapp-float img:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* efecto hover */
+    background-color: rgba(0, 0, 0, 0.1);
 }
 </style>

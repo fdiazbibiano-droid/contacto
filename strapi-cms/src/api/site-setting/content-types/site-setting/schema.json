@@ -1,0 +1,21 @@
+{
+    "kind": "singleType",
+    "collectionName": "site_settings",
+    "info": {
+        "singularName": "site-setting",
+        "pluralName": "site-settings",
+        "displayName": "Site Settings",
+        "description": "Global site settings: phone, email, address, company name"
+    },
+    "options": { "draftAndPublish": false },
+    "attributes": {
+        "company_name": { "type": "string", "required": true },
+        "phone":        { "type": "string", "required": true },
+        "email":        { "type": "email",  "required": true },
+        "address":      { "type": "string" },
+        "facebook_url": { "type": "string" },
+        "whatsapp":     { "type": "string" },
+        "service_area_en": { "type": "string" },
+        "service_area_es": { "type": "string" }
+    }
+}

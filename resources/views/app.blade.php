@@ -15,7 +15,7 @@
             <title>{{ config('app.name', 'Laravel') }}</title>
         </x-inertia::head>
         @routes 
-        @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
+        @vite(['resources/js/app.ts'])
     </head>
     <body class="font-sans antialiased">
         <x-inertia::app />

@@ -3,66 +3,52 @@
         <div class="footer-content">
             <!-- Información de contacto -->
             <div class="footer-section">
-                <h3>Contacto</h3>
+                <h3>{{ t.footer.contact }}</h3>
                 <p>
-                    <strong>Teléfono:</strong>
-                    <a href="tel:+34123456789">+34 123 456 789</a>
+                    <strong>{{ t.footer.phone }}</strong>
+                    <a href="tel:+15642098251">+1 564 209 8251</a>
                 </p>
                 <p>
-                    <strong>Dirección:</strong>
-                    Calle Principal 123, 28001 Madrid, España
+                    <strong>{{ t.footer.address }}</strong>
+                    {{ t.footer.addressValue }}
                 </p>
                 <p>
-                    <strong>Email:</strong>
+                    <strong>{{ t.footer.email }}</strong>
                     <a href="mailto:info@empresa.com">info@empresa.com</a>
                 </p>
             </div>
 
             <!-- Redes sociales -->
             <div class="footer-section">
-                <h3>Síguenos</h3>
+                <h3>{{ t.footer.follow }}</h3>
                 <div class="social-links">
-                    <a
-                        href="https://facebook.com"
-                        target="_blank"
-                        rel="noopener"
-                        >Facebook</a
-                    >
-                    <a href="https://twitter.com" target="_blank" rel="noopener"
-                        >Twitter</a
-                    >
-                    <a
-                        href="https://instagram.com"
-                        target="_blank"
-                        rel="noopener"
-                        >Instagram</a
-                    >
+                    <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
                 </div>
             </div>
 
             <!-- Enlaces rápidos -->
             <div class="footer-section">
-                <h3>Enlaces</h3>
+                <h3>{{ t.footer.links }}</h3>
                 <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/about">Acerca de</a></li>
-                    <li><a href="/services">Servicios</a></li>
-                    <li><a href="/contact">Contacto</a></li>
+                    <li><a href="#inicio">{{ t.footer.home }}</a></li>
+                    <li><a href="#nosotros">{{ t.footer.about }}</a></li>
+                    <li><a href="#servicios">{{ t.footer.services }}</a></li>
+                    <li><a href="#contacto">{{ t.footer.contact }}</a></li>
                 </ul>
             </div>
         </div>
 
         <!-- Copyright -->
         <div class="footer-bottom">
-            <p>&copy; 2024 Nombre Empresa. Todos los derechos reservados.</p>
+            <p>{{ t.footer.copyright }}</p>
         </div>
     </footer>
 </template>
 
 <script setup lang="ts">
-defineOptions({
-    name: 'FooterGeneral',
-});
+import { useLang } from '@/composables/useLang';
+
+const { t } = useLang();
 </script>
 
 <style scoped>
@@ -83,7 +69,7 @@ defineOptions({
 
 .footer-section h3 {
     margin-bottom: 15px;
-    color: #ffc107;
+    color: #ff0000;
 }
 
 .footer-section p {
@@ -92,7 +78,7 @@ defineOptions({
 }
 
 .footer-section a {
-    color: #ffc107;
+    color: #ff0000;
     text-decoration: none;
 }
 
@@ -114,7 +100,7 @@ defineOptions({
 }
 
 .social-links a:hover {
-    background-color: #ffc107;
+    background-color: #ff0000;
     color: #333;
     text-decoration: none;
 }

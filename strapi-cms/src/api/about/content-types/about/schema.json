@@ -1,0 +1,17 @@
+{
+    "kind": "singleType",
+    "collectionName": "abouts",
+    "info": {
+        "singularName": "about",
+        "pluralName": "abouts",
+        "displayName": "About Section",
+        "description": "About us section"
+    },
+    "options": { "draftAndPublish": true },
+    "attributes": {
+        "title":       { "type": "string", "required": true },
+        "text":        { "type": "text",   "required": true },
+        "title_es":    { "type": "string" },
+        "text_es":     { "type": "text" }
+    }
+}

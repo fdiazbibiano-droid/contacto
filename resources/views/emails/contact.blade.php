@@ -1,5 +1,8 @@
-<h1>Nuevo mensaje de contacto</h1>
-<p><strong>Nombre:</strong> {{ $data['name'] }}</p>
+<h2>New contact request</h2>
+
+<p><strong>Name:</strong> {{ $data['name'] }}</p>
+<p><strong>Phone:</strong> {{ $data['phone'] }}</p>
 <p><strong>Email:</strong> {{ $data['email'] }}</p>
-<p><strong>Teléfono:</strong> {{ $data['phone'] }}</p>
-<p><strong>Mensaje:</strong> {{ $data['message'] }}</p>
+<p><strong>Service:</strong> {{ $data['service'] }}</p>
+<p><strong>Message:</strong></p>
+<p>{{ $data['message'] }}</p>
